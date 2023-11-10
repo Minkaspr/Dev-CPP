@@ -137,7 +137,7 @@ void dibujarHiperbola(float centroX, float centroY, float semiejeMayor, float se
     color(VERDE);
     float dt = 0.01;  // Incremento para el parámetro t
     float velocidad = 0.01;  // Velocidad inicial
-    float aceleracion = 0.001;  // Aceleración
+    float aceleracion = 0.0001;  // Aceleración
     bool derecha = true;  // Dirección del movimiento
     int vueltas = 0;  // Contador de vueltas
     while (vueltas < 10) {  // Cambia este número para controlar cuántas vueltas da el círculo
@@ -180,9 +180,9 @@ void dibujarHiperbola(float centroX, float centroY, float semiejeMayor, float se
 
 int main() {
     vredimensiona(400, 400);
-    //dibujarCircunferencia(200, 200, 100.0, 10);
-    //dibujarElipse(200, 200, 100.0, 50.0, 10);
-    //dibujarParabola(200, 300, -0.01, 10);
+    dibujarCircunferencia(200, 200, 100.0, 10);
+    dibujarElipse(200, 200, 100.0, 50.0, 10);
+    dibujarParabola(200, 300, -0.01, 10);
    	dibujarHiperbola(200, 200, 100.0, 50.0,10);
     return 0;
 }
