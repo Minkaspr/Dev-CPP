@@ -9,12 +9,18 @@ int LG_ROJO = 200;
 int LG_AZUL = 200;
 
 void recAmarillo(int x,int y){
-	color(AMARILLO);
-	for(int i = 0; i <= 80; i++ ){
-		// Superior
-		linea(x+(i*2),y-i,x + LG_AMARRILLO -(i*2),y-i);
-		// Inferior
-		linea(x+(i*2),y+i,x + LG_AMARRILLO -(i*2),y+i);
+	for(int i = 0; i <= 160; i++ ){
+		// negro vertical
+		if(i == 0||i == 52 || i == 106 || i == 160){
+			color(NEGRO);
+			/* -> \ */
+			linea(x+i, y - (i/2),x + 160 + i, y + 80 - (i/2));
+			/* -> / */
+			linea(x+i, y + (i/2),x + 160 + i, y - 80 + (i/2));
+		}else {
+			color(AMARILLO);
+			linea(x+i, y - (i/2),x + 160 + i, y + 80 - (i/2));	
+		}
 	}
 }
 
@@ -22,13 +28,41 @@ void recRojo(int x, int y){
 	color(ROJO);
 	for(int i = 0; i <= LG_ROJO; i++ ){
 		linea(x, y + i,x + 160, y + 80 + i);
+		if(i == 0||i == 68 || i == 132 || i == LG_AZUL ){
+			// negro horizontal
+			color(NEGRO);
+			linea(x, y + i,x + 160, y + 80 + i);
+		}else {
+			color(ROJO);
+			linea(x, y + i,x + 160, y + 80 + i);
+		}
+	}
+	for(int i = 0; i <= 160; i++ ){
+		// negro vertical
+		if(i == 0||i == 52 || i == 106 || i == 160){
+			color(NEGRO);
+			linea(x+i, y + (i/2),x + i, y + 200 + (i/2));
+		}
 	}
 }
 
 void recAzul(int x, int y){
-	color(AZUL);
+	
 	for(int i = 0; i <= LG_AZUL; i++ ){
-		linea(x, y + i,x - 160, y + 80 + i);
+		if(i == 0||i == 68 || i == 132 || i == LG_AZUL ){
+			color(NEGRO);
+			linea(x, y + i,x - 160, y + 80 + i);
+		}else {
+			color(AZUL);
+			linea(x, y + i,x - 160, y + 80 + i);
+		}
+	}
+	for(int i = 0; i <= 160; i++ ){
+		// negro vertical
+		if(i == 0||i == 52 || i == 106 || i == 160){
+			color(NEGRO);
+			linea(x-i, y + (i/2),x - i, y + 200 + (i/2));
+		}
 	}
 }
 
@@ -46,4 +80,3 @@ int main() {
 	refresca();
 	return 0;
 }
-
